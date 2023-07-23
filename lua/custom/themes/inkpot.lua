@@ -132,7 +132,7 @@ M.polish_hl = {
   },
 
   ["@property"] = {
-    fg = M.base_16.base05,
+    fg = M.base_30.nord_blue,
   },
 
   ["@parameter"] = { fg = M.base_16.base05 },
