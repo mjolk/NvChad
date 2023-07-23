@@ -7,7 +7,7 @@ M.base_30 = {
   black2 = "#1a2130",
   one_bg = "#1e2534",
   one_bg2 = "#282f3e",
-  one_bg3 = "#323948",
+  one_bg3 = "#780000",
   grey = "#3e4554",
   grey_fg = "#4a5160",
   grey_fg2 = "#545b6a",
@@ -26,7 +26,7 @@ M.base_30 = {
   dark_purple = "#b3a6da",
   teal = "#719bd3",
   orange = "#E3D213",
-  cyan = "#BAE6FD",
+  cyan = "#DEDBFF",
   statusline_bg = "#171e2d",
   lightbg = "#282f3e",
   pmenu_bg = "#FCA5A5",
@@ -34,7 +34,7 @@ M.base_30 = {
 }
 
 M.base_16 = {
-  base00 = "#111827",
+  base00 = "#000000",
   base01 = "#1e2534",
   base02 = "#282f3e",
   base03 = "#323948",
@@ -52,15 +52,40 @@ M.base_16 = {
   base0F = "#9CA3AF",
 }
 
-M.type = "dark"
-
 M.polish_hl = {
+
+  Keyword = {
+    fg = M.base_30.nord_blue,
+  },
 
   ["@keyword"] = {
     fg = M.base_30.nord_blue,
   },
 
+  ["@keyword.operator"] = {
+    fg = M.base_30.baby_red,
+  },
+
+  ["@method"] = {
+    fg = M.base_30.orange,
+    bold = true
+  },
+
   ["@method.call"] = {
+    fg = M.base_30.orange,
+    bold = true
+  },
+
+  ["@symbol"] = {
+    fg = M.base_30.baby_red,
+  },
+
+  Function = {
+    fg = M.base_30.orange,
+    bold = true
+  },
+
+  ["@function"] = {
     fg = M.base_30.orange,
     bold = true
   },
@@ -75,12 +100,29 @@ M.polish_hl = {
     bold = true
   },
 
-  ["@text.literal"] = {
-    fg = M.base30.white,
-    bg = M.base_16.base0F,
+  String = {
+    fg = M.base_30.white,
+    bg = M.base_30.one_bg3,
+  },
+
+  ["@string"] = {
+    fg = M.base_30.white,
+    bg = M.base_30.one_bg3,
+  },
+
+  Type = {
+    fg = M.base_30.nord_blue,
   },
 
   ["@type.builtin"] = {
+    fg = M.base_30.nord_blue,
+  },
+
+  ["@field"] = {
+    fg = M.base_16.base05,
+  },
+
+  ["@field.key"] = {
     fg = M.base_16.base05,
   },
 
@@ -88,12 +130,50 @@ M.polish_hl = {
     fg = M.base_16.base05,
   },
 
+  Operator = {
+    fg = M.base_30.baby_red,
+  },
+
   ["@operator"] = {
     fg = M.base_30.baby_red,
   },
 
   ["@parameter"] = { fg = M.base_16.base05 },
-  ["@variable"] = { fg = M.base_16.base05 },
+
+  Variable = {
+    fg = M.base_16.base05,
+  },
+
+  Number = { fg = M.base_30.red },
+
+  Define = {
+    fg = M.base_16.base05
+  },
+
+  Identifier = {
+    fg = M.base_16.base05,
+  },
+
+  StorageClass = {
+    fg = M.base_16.base05,
+  },
+
+  Typedef = {
+    fg = M.base_16.base05,
+  },
+
+  Boolean = {
+    fg = M.base_16.base05,
+  },
+
+  Character = {
+    fg = M.base_16.base05,
+  },
+
+  Label = {
+    fg = M.base_16.base05,
+  },
+
 }
 
 M.type = "dark"
