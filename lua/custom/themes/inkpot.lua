@@ -22,7 +22,7 @@ M.base_30 = {
   blue = "#A5B4FC",
   yellow = "#E8D4B0",
   sun = "#f2deba",
-  purple = "#BDB0E4",
+  purple = "#2e2e37",
   dark_purple = "#b3a6da",
   teal = "#719bd3",
   orange = "#E3D213",
@@ -31,6 +31,11 @@ M.base_30 = {
   lightbg = "#282f3e",
   pmenu_bg = "#FCA5A5",
   folder_bg = "#A5B4FC",
+  visual_fg = "#eeeeee",
+  visual_bg = "#4e4e8f",
+  linenr_fg = "#8b8bcd",
+  linenr_bg = "#2e2e2e",
+  comment_fg = "#cd8b00",
 }
 
 M.base_16 = {
@@ -101,12 +106,12 @@ M.polish_hl = {
   },
 
   String = {
-    fg = M.base_30.white,
+    fg = M.base_30.cyan,
     bg = M.base_30.one_bg3,
   },
 
   ["@string"] = {
-    fg = M.base_30.white,
+    fg = M.base_30.cyan,
     bg = M.base_30.one_bg3,
   },
 
@@ -172,20 +177,28 @@ M.polish_hl = {
   },
 
   CursorLine = {
-    bg = M.base_16.base01,
+    bg = M.base_30.purple,
     sp = "none",
   },
 
-  LineNr = { fg = M.base_30.light_grey },
+  LineNr = {
+    fg = M.base_30.linenr_fg,
+    bg = M.base_30.linenr_bg,
+  },
   CursorLineNr = { fg = M.base_30.yellow },
 
   Visual = {
-    bg = M.base_16.base04,
+    bg = M.base_30.visual_bg,
+    fg = M.base_30.visual_fg,
   },
 
   VisualNOS = {
     fg = M.base_16.base08,
   },
+
+  Comment = {
+    fg = M.base_30.comment_fg,
+  }
 }
 
 M.type = "dark"
