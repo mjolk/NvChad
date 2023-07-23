@@ -12,7 +12,7 @@ M.base_30 = {
   grey_fg = "#4a5160",
   grey_fg2 = "#545b6a",
   light_grey = "#5f6675",
-  red = "#FCA5A5",
+  red = "#e36d76",
   baby_pink = "#FECDD3",
   pink = "#ff8e8e",
   line = "#282f3e", -- for lines like vertsplit
@@ -66,16 +66,6 @@ M.polish_hl = {
     fg = M.base_30.baby_red,
   },
 
-  ["@method"] = {
-    fg = M.base_30.orange,
-    bold = true
-  },
-
-  ["@method.call"] = {
-    fg = M.base_30.orange,
-    bold = true
-  },
-
   ["@symbol"] = {
     fg = M.base_30.baby_red,
   },
@@ -96,6 +86,16 @@ M.polish_hl = {
   },
 
   ["@function.builtin"] = {
+    fg = M.base_30.orange,
+    bold = true
+  },
+
+  ["@method"] = {
+    fg = M.base_30.orange,
+    bold = true
+  },
+
+  ["@method.call"] = {
     fg = M.base_30.orange,
     bold = true
   },
@@ -130,14 +130,6 @@ M.polish_hl = {
     fg = M.base_16.base05,
   },
 
-  Operator = {
-    fg = M.base_30.baby_red,
-  },
-
-  ["@operator"] = {
-    fg = M.base_30.baby_red,
-  },
-
   ["@parameter"] = { fg = M.base_16.base05 },
 
   Variable = {
@@ -166,14 +158,34 @@ M.polish_hl = {
     fg = M.base_16.base05,
   },
 
-  Character = {
-    fg = M.base_16.base05,
+  Operator = {
+    fg = M.base_30.red,
   },
 
-  Label = {
-    fg = M.base_16.base05,
+  ["@operator"] = {
+    fg = M.base_30.red,
   },
 
+  Cursor = {
+    fg = M.base_16.base05,
+    bg = M.base_30.blue,
+  },
+
+  CursorLine = {
+    bg = M.base_16.base01,
+    sp = "none",
+  },
+
+  LineNr = { fg = M.base_30.light_grey },
+  CursorLineNr = { fg = M.base_30.yellow },
+
+  Visual = {
+    bg = M.base_16.base04,
+  },
+
+  VisualNOS = {
+    fg = M.base_16.base08,
+  },
 }
 
 M.type = "dark"
