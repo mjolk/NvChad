@@ -7,7 +7,7 @@ local util = require "lspconfig/util"
 lspconfig.gopls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = {"gopls"},
+  cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
   settings = {
@@ -49,7 +49,18 @@ lspconfig.gopls.setup {
 --  root_dir = util.root_pattern 'angular.json',
 --}
 
-lspconfig.tsserver.setup {}
+-- lspconfig.tsserver.setup {}
+require("typescript").setup({
+  disable_commands = false,
+  debug = false,
+  go_to_source_definition = {
+    fallback = true,
+  },
+  server = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+})
 lspconfig.clangd.setup {}
-lspconfig.yamlls.setup{}
-lspconfig.lua_ls.setup{}
+lspconfig.yamlls.setup {}
+lspconfig.lua_ls.setup {}
