@@ -77,32 +77,32 @@ M.polish_hl = {
 
   Function = {
     fg = M.base_30.orange,
-    bold = true
+    bold = true,
   },
 
   ["@function"] = {
     fg = M.base_30.orange,
-    bold = true
+    bold = true,
   },
 
   ["@function.call"] = {
     fg = M.base_30.orange,
-    bold = true
+    bold = true,
   },
 
   ["@function.builtin"] = {
     fg = M.base_30.orange,
-    bold = true
+    bold = true,
   },
 
   ["@method"] = {
     fg = M.base_30.orange,
-    bold = true
+    bold = true,
   },
 
   ["@method.call"] = {
     fg = M.base_30.orange,
-    bold = true
+    bold = true,
   },
 
   String = {
@@ -132,7 +132,8 @@ M.polish_hl = {
   },
 
   ["@property"] = {
-    fg = M.base_30.nord_blue,
+    -- fg = M.base_30.nord_blue,
+    fg = M.base_16.base05,
   },
 
   ["@parameter"] = { fg = M.base_16.base05 },
@@ -144,7 +145,7 @@ M.polish_hl = {
   Number = { fg = M.base_30.red },
 
   Define = {
-    fg = M.base_16.base05
+    fg = M.base_16.base05,
   },
 
   Identifier = {
@@ -198,7 +199,7 @@ M.polish_hl = {
 
   Comment = {
     fg = M.base_30.comment_fg,
-  }
+  },
 }
 
 M.type = "dark"

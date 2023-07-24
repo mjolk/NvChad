@@ -7,7 +7,11 @@ local plugins = {
         "golines",
         "goimports-reviser",
         "angularls",
-        "prettier"
+        "prettier",
+        "typescript-language-server",
+        "lua-language-server",
+        "html-lsp",
+        "stylua"
       },
     },
   },
@@ -48,16 +52,15 @@ local plugins = {
   },
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+        return require "custom.configs.null-ls"
+      end,
+    },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
-    end,
-  },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    ft = "go",
-    opts = function()
-      return require "custom.configs.null-ls"
     end,
   },
   {
@@ -71,5 +74,8 @@ local plugins = {
       vim.cmd [[silent! GoInstallDeps]]
     end,
   },
+  {
+    "jose-elias-alvarez/typescript.nvim",
+  }
 }
 return plugins
