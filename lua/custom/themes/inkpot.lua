@@ -23,7 +23,7 @@ M.base_30 = {
   yellow = "#E8D4B0",
   sun = "#f2deba",
   purple = "#2e2e37",
-  dark_purple = "#b3a6da",
+  dark_purple = "#f2deba",
   teal = "#719bd3",
   orange = "#E3D213",
   cyan = "#DEDBFF",
@@ -37,8 +37,7 @@ M.base_30 = {
   linenr_bg = "#2e2e2e",
   comment_fg = "#cd8b00",
   label_blue = "#6443FF",
-  ident_blue = "#AA97FF"
-
+  ident_blue = "#AA97FF",
 }
 
 M.base_16 = {
@@ -50,14 +49,14 @@ M.base_16 = {
   base05 = "#01C90E",
   base06 = "#01C90E",
   base07 = "#D1D5DB",
-  base08 = "#DDD6FE",
+  base08 = "#6443FF",
   base09 = "#01C90E",
   base0A = "#FBC19D",
   base0B = "#B5E8B0",
   base0C = "#AA97FF",
   base0D = "#AA97FF",
   base0E = "#AA97FF",
-  base0F = "#9CA3AF",
+  base0F = "#6443FF",
 }
 
 M.polish_hl = {
