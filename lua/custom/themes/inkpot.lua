@@ -36,6 +36,9 @@ M.base_30 = {
   linenr_fg = "#8b8bcd",
   linenr_bg = "#2e2e2e",
   comment_fg = "#cd8b00",
+  label_blue = "#6443FF",
+  ident_blue = "#AA97FF"
+
 }
 
 M.base_16 = {
@@ -45,26 +48,26 @@ M.base_16 = {
   base03 = "#323948",
   base04 = "#3e4554",
   base05 = "#01C90E",
-  base06 = "#E5E7EB",
+  base06 = "#01C90E",
   base07 = "#D1D5DB",
   base08 = "#DDD6FE",
-  base09 = "#E8D4B0",
+  base09 = "#01C90E",
   base0A = "#FBC19D",
   base0B = "#B5E8B0",
-  base0C = "#BAE6FD",
-  base0D = "#BAE6FD",
-  base0E = "#BAE6FD",
+  base0C = "#AA97FF",
+  base0D = "#AA97FF",
+  base0E = "#AA97FF",
   base0F = "#9CA3AF",
 }
 
 M.polish_hl = {
 
   Keyword = {
-    fg = M.base_30.nord_blue,
+    fg = M.base_30.label_blue,
   },
 
   ["@keyword"] = {
-    fg = M.base_30.nord_blue,
+    fg = M.base_30.label_blue,
   },
 
   ["@keyword.operator"] = {
@@ -116,11 +119,11 @@ M.polish_hl = {
   },
 
   Type = {
-    fg = M.base_30.nord_blue,
+    fg = M.base_30.ident_blue,
   },
 
   ["@type.builtin"] = {
-    fg = M.base_30.nord_blue,
+    fg = M.base_30.ident_blue,
   },
 
   ["@field"] = {
@@ -141,6 +144,8 @@ M.polish_hl = {
   Variable = {
     fg = M.base_16.base05,
   },
+
+  ["@variable"] = { fg = M.base_16.base05 },
 
   Number = { fg = M.base_30.red },
 
