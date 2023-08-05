@@ -12,6 +12,7 @@ local plugins = {
         "lua-language-server",
         "html-lsp",
         "stylua",
+        "clangd",
         "clang-format",
       },
     },
