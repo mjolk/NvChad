@@ -23,16 +23,13 @@ local plugins = {
       ensure_installed = {
         "vim",
         "lua",
-
         "html",
         "css",
         "javascript",
         "typescript",
         "json",
-
         "c",
         "go",
-        "python",
       },
     },
   },
