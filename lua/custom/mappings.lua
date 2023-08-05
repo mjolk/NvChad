@@ -1,11 +1,10 @@
 local M = {}
 
 M.dap = {
-  plugin = true,
   n = {
-    ["<leader>db"] = {
+    ["<leader>sbr"] = {
       "<cmd> DapToggleBreakpoint <CR>",
-      "Add breakpoint at line",
+      "Set breakpoint at line",
     },
     ["<leader>dus"] = {
       function()
@@ -15,11 +14,34 @@ M.dap = {
       end,
       "Open debugging sidebar",
     },
+    ["<leader>con"] = {
+      "<cmd> DapContinue <CR>",
+      "Continue",
+    },
+    ["<leader>sti"] = {
+      "<cmd> DapStepInto <CR>",
+      "Dap step into",
+    },
+    ["<leader>sto"] = {
+      "<cmd> DapStepOut <CR>",
+      "Dap step out",
+    },
+    ["<leader>sov"] = {
+      "<cmd> DapStepOver <CR>",
+      "Dap step over",
+    },
+    ["<leader>dre"] = {
+      "<cmd> DapToggleRepl <CR>",
+      "Dap repl",
+    },
+    ["<leader>dax"] = {
+      "<cmd> DapTerminate <CR>",
+      "Dap terminate",
+    },
   },
 }
 
 M.dap_go = {
-  plugin = true,
   n = {
     ["<leader>dgt"] = {
       function()
@@ -37,7 +59,6 @@ M.dap_go = {
 }
 
 M.gopher = {
-  plugin = true,
   n = {
     ["<leader>gsj"] = {
       "<cmd> GoTagAdd json <CR>",
@@ -50,9 +71,15 @@ M.gopher = {
   },
 }
 
-M.abc = {
+M.telescope = {
   n = {
-    ["<C-p>"] = { "<cmd> Telescope find_files <CR>", "Find Files" },
+    ["<C-p>"] = { "<cmd> Telescope find_files <CR>", "Find Files CtrlP" },
+    ["<leader>di"] = {
+      function()
+        require("telescope.builtin").diagnostics { bufnr = 0 }
+      end,
+      "Show lsp diagnostics current buffer",
+    },
   },
 }
 
