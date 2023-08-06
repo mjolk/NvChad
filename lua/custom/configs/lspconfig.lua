@@ -21,11 +21,11 @@ lspconfig.gopls.setup {
   },
 }
 
-lspconfig.angularls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  root_dir = util.root_pattern "angular.json",
-}
+--lspconfig.angularls.setup {
+--  on_attach = on_attach,
+--  capabilities = capabilities,
+--  root_dir = util.root_pattern "angular.json",
+--}
 
 -- lspconfig.tsserver.setup {}
 
