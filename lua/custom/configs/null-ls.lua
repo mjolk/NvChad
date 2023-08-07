@@ -9,12 +9,9 @@ null_ls.setup {
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.stylua,
     require "typescript.extensions.null-ls.code-actions",
-    -- null_ls.builtins.diagnostics.clang_check,
-    null_ls.builtins.diagnostics.gccdiag,
-    null_ls.builtins.diagnostics.cmake_lint,
+    null_ls.builtins.diagnostics.clang_check,
     null_ls.builtins.diagnostics.yamllint,
     null_ls.builtins.formatting.clang_format,
-    null_ls.builtins.formatting.cmake_format,
     null_ls.builtins.formatting.protolint,
   },
   on_attach = function(client, bufnr)
