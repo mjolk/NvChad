@@ -1,7 +1,49 @@
 local null_ls = require "null-ls"
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
+local h = require "null-ls.helpers"
+local methods = require "null-ls.methods"
+
+local DIAGNOSTICS_ON_SAVE = methods.internal.DIAGNOSTICS_ON_SAVE
+
+local cmake_tidy = {
+  name = "cmake-tidy",
+  meta = {
+    url = "",
+    description = " cmake clang tidy",
+    notes = {
+      "`clang-tidy` will be run only when files are saved to disk, so that `compile_commands.json` files can be used. It is recommended to use this linter in combination with `compile_commands.json` files.",
+    },
+  },
+  method = DIAGNOSTICS_ON_SAVE,
+  filetypes = { "c", "cpp" },
+  generator = h.generator_factory {
+    command = "ninja",
+    args = {
+      "-Cbuild",
+    },
+    to_stdin = false,
+    from_stderr = false,
+    multiple_files = true,
+    format = "line",
+    on_output = h.diagnostics.from_pattern(
+      [[^([^:]+):(%d+):(%d+):%s+([^:]+):%s+(.*)$]],
+      -- [[(%w+):(%d+):(%d+): (%w+): (.*)]],
+      { "file", "row", "col", "severity", "message" },
+      {
+        severities = {
+          ["fatal error"] = h.diagnostics.severities.error,
+          ["error"] = h.diagnostics.severities.error,
+          ["note"] = h.diagnostics.severities.information,
+          ["warning"] = h.diagnostics.severities.warning,
+        },
+      }
+    ),
+  },
+}
+
 null_ls.setup {
+  debug = true,
   sources = {
     null_ls.builtins.formatting.gofumpt,
     null_ls.builtins.formatting.goimports_reviser,
