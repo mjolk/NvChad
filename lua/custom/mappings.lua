@@ -81,14 +81,6 @@ M.telescope = {
       "Show lsp diagnostics current buffer",
     },
   },
-  i = {
-    ["<leader>tp"] = {
-      function(prompt_bufnr)
-        require("telescope.actions.layout").toggle_preview(prompt_bufnr)
-      end,
-      "Toggle preview",
-    },
-  },
 }
 
 return M

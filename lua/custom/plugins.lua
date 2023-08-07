@@ -74,5 +74,17 @@ local plugins = {
   {
     "jose-elias-alvarez/typescript.nvim",
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = function()
+      local settings = require "plugins.configs.telescope"
+
+      settings.defaults.mappings.i = {
+        ["<A-t>"] = require("telescope.actions.layout").toggle_preview,
+      }
+
+      return settings
+    end,
+  },
 }
 return plugins
