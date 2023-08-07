@@ -146,6 +146,8 @@ M.polish_hl = {
 
   ["@variable"] = { fg = M.base_16.base05 },
 
+  ["@storageclass"] = { fg = M.base_30.ident_blue },
+
   Number = { fg = M.base_30.red },
 
   Define = {
