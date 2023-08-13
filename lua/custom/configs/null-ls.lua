@@ -6,13 +6,13 @@ local methods = require "null-ls.methods"
 
 local DIAGNOSTICS_ON_SAVE = methods.internal.DIAGNOSTICS_ON_SAVE
 
-local cmake_tidy = {
-  name = "cmake-tidy",
+local ninja = {
+  name = "ninja",
   meta = {
     url = "",
-    description = " cmake clang tidy",
+    description = "ninja",
     notes = {
-      "`clang-tidy` will be run only when files are saved to disk, so that `compile_commands.json` files can be used. It is recommended to use this linter in combination with `compile_commands.json` files.",
+      "`ninja` will be run only when files are saved to disk, so that `compile_commands.json` files can be used. It is recommended to use this linter in combination with `compile_commands.json` files.",
     },
   },
   method = DIAGNOSTICS_ON_SAVE,
@@ -27,8 +27,7 @@ local cmake_tidy = {
     multiple_files = true,
     format = "line",
     on_output = h.diagnostics.from_pattern(
-      [[^([^:]+):(%d+):(%d+):%s+([^:]+):%s+(.*)$]],
-      -- [[(%w+):(%d+):(%d+): (%w+): (.*)]],
+      [[(%w+):(%d+):(%d+): (%w+): (.*)]],
       { "file", "row", "col", "severity", "message" },
       {
         severities = {
