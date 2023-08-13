@@ -35,9 +35,22 @@ local plugins = {
   },
   {
     "mfussenegger/nvim-dap",
-    dependencies = { "rcarriga/nvim-dap-ui", "theHamsta/nvim-dap-virtual-text" },
     init = function()
       require "custom.configs.dap"
+    end,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function()
+      require "custom.configs.dapui"
+    end,
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function()
+      require("nvim-dap-virtual-text").setup()
     end,
   },
   {
@@ -85,6 +98,12 @@ local plugins = {
 
       return settings
     end,
-  },
+  }
+--  {
+--    "mjolk/header.nvim",
+--    config = function()
+--      require "custom.configs.header"
+--    end,
+--  },
 }
 return plugins
