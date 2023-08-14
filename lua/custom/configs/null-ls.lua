@@ -23,11 +23,11 @@ local ninja = {
       "-Cbuild",
     },
     to_stdin = false,
-    from_stderr = false,
+    from_stderr = true,
     multiple_files = true,
     format = "line",
     on_output = h.diagnostics.from_pattern(
-      [[(%w+):(%d+):(%d+): (%w+): (.*)]],
+      [[^([^:]+):(%d+):(%d+):%s+([^:]+):%s+(.*)$]],
       { "file", "row", "col", "severity", "message" },
       {
         severities = {
