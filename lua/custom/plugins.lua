@@ -14,6 +14,8 @@ local plugins = {
         "stylua",
         "clangd",
         "clang-format",
+        "delve",
+        "cpptools",
       },
     },
   },
@@ -29,45 +31,50 @@ local plugins = {
         "typescript",
         "json",
         "c",
+        "cpp",
         "go",
+        "dockerfile",
+        "yaml",
       },
     },
   },
   {
     "mfussenegger/nvim-dap",
-    init = function()
+    dependencies = {
+      {
+        "rcarriga/nvim-dap-ui",
+        opts = {},
+        config = function()
+          require "custom.configs.dapui"
+        end,
+      },
+      {
+        "theHamsta/nvim-dap-virtual-text",
+        opts = {},
+      },
+      {
+        "dreamsofcode-io/nvim-dap-go",
+        ft = "go",
+        config = true,
+      },
+    },
+    config = function()
       require "custom.configs.dap"
-    end,
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = "mfussenegger/nvim-dap",
-    config = function()
-      require "custom.configs.dapui"
-    end,
-  },
-  {
-    "theHamsta/nvim-dap-virtual-text",
-    dependencies = "mfussenegger/nvim-dap",
-    config = function()
-      require("nvim-dap-virtual-text").setup()
-    end,
-  },
-  {
-    "dreamsofcode-io/nvim-dap-go",
-    ft = "go",
-    dependencies = "mfussenegger/nvim-dap",
-    config = function(_, opts)
-      require("dap-go").setup(opts)
     end,
   },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "jose-elias-alvarez/null-ls.nvim",
-      config = function()
-        return require "custom.configs.null-ls"
-      end,
+      {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+          require "custom.configs.null-ls"
+        end,
+      },
+      {
+        "jose-elias-alvarez/typescript.nvim",
+        ft = "typescript",
+      },
     },
     config = function()
       require "plugins.configs.lspconfig"
@@ -77,15 +84,10 @@ local plugins = {
   {
     "olexsmir/gopher.nvim",
     ft = "go",
-    config = function(_, opts)
-      require("gopher").setup(opts)
-    end,
+    config = true,
     build = function()
       vim.cmd [[silent! GoInstallDeps]]
     end,
-  },
-  {
-    "jose-elias-alvarez/typescript.nvim",
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -98,12 +100,12 @@ local plugins = {
 
       return settings
     end,
-  }
---  {
---    "mjolk/header.nvim",
---    config = function()
---      require "custom.configs.header"
---    end,
---  },
+  },
+  {
+    "mjolk/header.nvim",
+    config = function()
+      require "custom.configs.header"
+    end,
+  },
 }
 return plugins

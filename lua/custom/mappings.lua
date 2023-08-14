@@ -2,41 +2,126 @@ local M = {}
 
 M.dap = {
   n = {
-    ["<leader>sbr"] = {
-      "<cmd> DapToggleBreakpoint <CR>",
-      "Set breakpoint at line",
-    },
-    ["<leader>dus"] = {
+    ["<leader>dB"] = {
       function()
-        local widgets = require "dap.ui.widgets"
-        local sidebar = widgets.sidebar(widgets.scopes)
-        sidebar.open()
+        require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ")
       end,
-      "Open debugging sidebar",
+      "Breakpoint Condition",
     },
-    ["<leader>con"] = {
-      "<cmd> DapContinue <CR>",
+    ["<leader>db"] = {
+      function()
+        require("dap").toggle_breakpoint()
+      end,
+      "Toggle Breakpoint",
+    },
+    ["<leader>dc"] = {
+      function()
+        require("dap").continue()
+      end,
       "Continue",
     },
-    ["<leader>sti"] = {
-      "<cmd> DapStepInto <CR>",
-      "Dap step into",
+    ["<leader>dC"] = {
+      function()
+        require("dap").run_to_cursor()
+      end,
+      "Run to Cursor",
     },
-    ["<leader>sto"] = {
-      "<cmd> DapStepOut <CR>",
-      "Dap step out",
+    ["<leader>dg"] = {
+      function()
+        require("dap").goto_()
+      end,
+      "Go to line (no execute)",
     },
-    ["<leader>sov"] = {
-      "<cmd> DapStepOver <CR>",
-      "Dap step over",
+    ["<leader>di"] = {
+      function()
+        require("dap").step_into()
+      end,
+      "Step Into",
     },
-    ["<leader>dre"] = {
-      "<cmd> DapToggleRepl <CR>",
-      "Dap repl",
+    ["<leader>dj"] = {
+      function()
+        require("dap").down()
+      end,
+      "Down",
     },
-    ["<leader>dax"] = {
-      "<cmd> DapTerminate <CR>",
-      "Dap terminate",
+    ["<leader>dk"] = {
+      function()
+        require("dap").up()
+      end,
+      "Up",
+    },
+    ["<leader>dl"] = {
+      function()
+        require("dap").run_last()
+      end,
+      "Run Last",
+    },
+    ["<leader>do"] = {
+      function()
+        require("dap").step_out()
+      end,
+      "Step Out",
+    },
+    ["<leader>dO"] = {
+      function()
+        require("dap").step_over()
+      end,
+      "Step Over",
+    },
+    ["<leader>dp"] = {
+      function()
+        require("dap").pause()
+      end,
+      "Pause",
+    },
+    ["<leader>dr"] = {
+      function()
+        require("dap").repl.toggle()
+      end,
+      "Toggle REPL",
+    },
+    ["<leader>ds"] = {
+      function()
+        require("dap").session()
+      end,
+      "Session",
+    },
+    ["<leader>dt"] = {
+      function()
+        require("dap").terminate()
+      end,
+      "Terminate",
+    },
+    ["<leader>dw"] = {
+      function()
+        require("dap.ui.widgets").hover()
+      end,
+      "Widgets",
+    },
+  },
+}
+
+M.dapui = {
+  n = {
+    ["<leader>du"] = {
+      function()
+        require("dapui").toggle {}
+      end,
+      "Dap UI",
+    },
+    ["<leader>de"] = {
+      function()
+        require("dapui").eval()
+      end,
+      "Eval",
+    },
+  },
+  v = {
+    ["<leader>de"] = {
+      function()
+        require("dapui").eval()
+      end,
+      "Eval",
     },
   },
 }
@@ -74,12 +159,18 @@ M.gopher = {
 M.telescope = {
   n = {
     ["<C-p>"] = { "<cmd> Telescope find_files <CR>", "Find Files CtrlP" },
-    ["<leader>di"] = {
+    ["<leader>fer"] = {
       function()
         require("telescope.builtin").diagnostics { bufnr = 0 }
       end,
       "Show lsp diagnostics current buffer",
     },
+  },
+}
+
+M.header = {
+  n = {
+    ["<leader>kut"] = { "<cmd> Stdheader <CR>" },
   },
 }
 
