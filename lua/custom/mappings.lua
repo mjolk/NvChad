@@ -98,6 +98,12 @@ M.dap = {
       end,
       "Widgets",
     },
+    ["<leader>dx"] = {
+      function()
+        require("dap").clear_breakpoints()
+      end,
+      "Clear all breakpoints",
+    },
   },
 }
 
