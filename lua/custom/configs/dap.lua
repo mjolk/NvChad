@@ -1,6 +1,19 @@
 local dap = require "dap"
 
 vim.g.dap_virtual_text = true
+vim.api.nvim_set_hl(0, "red", { fg = "#ff1303" })
+
+vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "red", linehl = "DapBreakpoint", numhl = "DapBreakpoint" })
+vim.fn.sign_define(
+  "DapBreakpointCondition",
+  { text = "", texthl = "red", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+)
+vim.fn.sign_define(
+  "DapBreakpointRejected",
+  { text = "", texthl = "red", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
+)
+vim.fn.sign_define("DapStopped", { text = "󰙧", texthl = "red", linehl = "DapBreakpoint", numhl = "DapBreakpoint" })
+vim.fn.sign_define("DapLogPoint", { text = "", texthl = "red", linehl = "DapBreakpoint", numhl = "DapBreakpoint" })
 
 dap.adapters.cppdbg = {
   id = "cppdbg",
