@@ -29,9 +29,17 @@ dap.configurations.cpp = {
     program = function()
       return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
     end,
-
     cwd = "${workspaceFolder}",
-    stopAtEntry = true,
+    stopAtEntry = false,
+    MIMode = "gdb",
+    miDebuggerPath = "/usr/bin/gdb",
+    setupCommands = {
+      {
+        description = "Enable pretty-printing for gdb",
+        text = "-enable-pretty-printing",
+        ignoreFailures = true,
+      },
+    },
   },
 }
 dap.configurations.c = dap.configurations.cpp
