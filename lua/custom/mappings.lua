@@ -98,7 +98,7 @@ M.dap = {
       end,
       "Widgets",
     },
-    ["<leader>dx"] = {
+    ["<leader>dxx"] = {
       function()
         require("dap").clear_breakpoints()
       end,
@@ -118,6 +118,12 @@ M.dapui = {
     ["<leader>de"] = {
       function()
         require("dapui").eval()
+      end,
+      "Eval",
+    },
+    ["<leader>dx"] = {
+      function()
+        require("dapui").close()
       end,
       "Eval",
     },

@@ -39,28 +39,31 @@ local plugins = {
     },
   },
   {
-    "mfussenegger/nvim-dap",
+    "rcarriga/nvim-dap-ui",
+    config = function()
+      require "custom.configs.dapui"
+    end,
     dependencies = {
       {
-        "rcarriga/nvim-dap-ui",
-        opts = {},
+        "mfussenegger/nvim-dap",
         config = function()
-          require "custom.configs.dapui"
+          require "custom.configs.dap"
         end,
+        opts = {},
+      },
+      {
+        "nvim-neotest/nvim-nio",
       },
       {
         "theHamsta/nvim-dap-virtual-text",
         opts = {},
       },
       {
-        "dreamsofcode-io/nvim-dap-go",
+        "leoluz/nvim-dap-go",
         ft = "go",
         config = true,
       },
     },
-    config = function()
-      require "custom.configs.dap"
-    end,
   },
   {
     "neovim/nvim-lspconfig",
@@ -101,11 +104,12 @@ local plugins = {
       return settings
     end,
   },
-  {
-    "mjolk/header.nvim",
-    config = function()
-      require "custom.configs.header"
-    end,
-  },
+  -- {
+  --   "mjolk/header.nvim",
+  --   config = function()
+  --     require "custom.configs.header"
+  --   end,
+  -- },
+  { "nvim-neotest/nvim-nio" },
 }
 return plugins
