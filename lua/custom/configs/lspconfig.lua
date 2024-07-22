@@ -48,12 +48,15 @@ lspconfig.clangd.setup {
   capabilities = clangd_capabilities,
 }
 
-lspconfig.yamlls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+-- lspconfig.yamlls.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- }
 
 lspconfig.lua_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+}
+lspconfig.docker_compose_language_service.setup {
+  filetypes = { "yaml" },
 }
