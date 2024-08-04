@@ -6,7 +6,6 @@ local plugins = {
         "gopls",
         "golines",
         "goimports-reviser",
-        "angularls",
         "prettier",
         "typescript-language-server",
         "lua-language-server",
@@ -54,10 +53,10 @@ local plugins = {
       {
         "nvim-neotest/nvim-nio",
       },
-      {
-        "theHamsta/nvim-dap-virtual-text",
-        opts = {},
-      },
+      -- {
+      --   "theHamsta/nvim-dap-virtual-text",
+      --   opts = {},
+      -- },
       {
         "leoluz/nvim-dap-go",
         ft = "go",
@@ -76,6 +75,7 @@ local plugins = {
       },
       {
         "jose-elias-alvarez/typescript.nvim",
+        lazy = true,
         ft = "typescript",
       },
     },
@@ -104,12 +104,26 @@ local plugins = {
       return settings
     end,
   },
-  -- {
-  --   "mjolk/header.nvim",
-  --   config = function()
-  --     require "custom.configs.header"
-  --   end,
-  -- },
   { "nvim-neotest/nvim-nio" },
+  {
+    "folke/todo-comments.nvim",
+    lazy = false,
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
+  },
 }
 return plugins
