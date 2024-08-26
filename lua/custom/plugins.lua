@@ -6,6 +6,7 @@ local plugins = {
         "gopls",
         "golines",
         "goimports-reviser",
+        "gofumpt",
         "prettier",
         "typescript-language-server",
         "lua-language-server",
