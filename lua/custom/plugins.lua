@@ -16,6 +16,8 @@ local plugins = {
         "clang-format",
         "delve",
         "cpptools",
+        "csharp-language-server",
+        "csharpier",
       },
     },
   },
