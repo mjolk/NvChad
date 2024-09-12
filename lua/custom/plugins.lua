@@ -35,6 +35,7 @@ local plugins = {
         "go",
         "dockerfile",
         "yaml",
+        "c_sharp",
       },
     },
   },
@@ -125,6 +126,10 @@ local plugins = {
         -- Configuration here, or leave empty to use defaults
       }
     end,
+  },
+  {
+    "Decodetalkers/csharpls-extended-lsp.nvim",
+    ft = "c_sharp",
   },
 }
 return plugins

@@ -107,6 +107,11 @@ M.polish_hl = {
     bold = true,
   },
 
+  ["@function.method.call"] = {
+    fg = M.base_30.orange,
+    bold = true,
+  },
+
   String = {
     fg = M.base_30.cyan,
     bg = M.base_30.one_bg3,
