@@ -66,6 +66,7 @@ null_ls.setup {
     require "typescript.extensions.null-ls.code-actions",
     ninja,
     null_ls.builtins.formatting.clang_format,
+    null_ls.builtins.formatting.csharpier,
   },
   on_attach = function(client, bufnr)
     if client.supports_method "textDocument/formatting" then
@@ -77,7 +78,12 @@ null_ls.setup {
         group = augroup,
         buffer = bufnr,
         callback = function()
-          vim.lsp.buf.format { async = false }
+          vim.lsp.buf.format {
+            bufnr = bufnr,
+            filter = function(c)
+              return c.name == "null-ls"
+            end,
+          }
         end,
       })
     end

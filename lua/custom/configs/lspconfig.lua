@@ -48,6 +48,39 @@ lspconfig.clangd.setup {
   capabilities = clangd_capabilities,
 }
 
+lspconfig.csharp_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  handlers = {
+    ["textDocument/definition"] = require("csharpls_extended").handler,
+    ["textDocument/typeDefinition"] = require("csharpls_extended").handler,
+  },
+}
+
+-- lspconfig.omnisharp.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   cmd = { "dotnet", vim.fn.stdpath "data" .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+--
+--   settings = {
+--     FormattingOptions = {
+--       EnableEditorConfigSupport = false,
+--       OrganizeImports = true,
+--     },
+--     MsBuild = {
+--       LoadProjectsOnDemand = false,
+--     },
+--     RoslynExtensionsOptions = {
+--       EnableAnalyzersSupport = false,
+--       EnableImportCompletion = false,
+--       AnalyzeOpenDocumentsOnly = true,
+--     },
+--     Sdk = {
+--       IncludePrereleases = true,
+--     },
+--   },
+-- }
+
 -- lspconfig.yamlls.setup {
 --   on_attach = on_attach,
 --   capabilities = capabilities,
