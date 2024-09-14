@@ -112,6 +112,11 @@ M.polish_hl = {
     bold = true,
   },
 
+  ["@constant.macro"] = {
+    fg = M.base_30.orange,
+    bold = true,
+  },
+
   String = {
     fg = M.base_30.cyan,
     bg = M.base_30.one_bg3,
@@ -150,6 +155,7 @@ M.polish_hl = {
   },
 
   ["@variable"] = { fg = M.base_16.base05 },
+  ["@variable.parameter"] = { fg = M.base_16.base05 },
 
   ["@storageclass"] = { fg = M.base_30.ident_blue },
 
