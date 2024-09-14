@@ -77,16 +77,17 @@ local plugins = {
           require "custom.configs.null-ls"
         end,
       },
-      {
-        "jose-elias-alvarez/typescript.nvim",
-        lazy = true,
-        ft = "typescript",
-      },
     },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
+  },
+  {
+    "mjolk/typescript.nvim",
+    lazy = true,
+    branch = "ts_ls",
+    ft = "typescript",
   },
   {
     "olexsmir/gopher.nvim",
