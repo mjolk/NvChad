@@ -18,6 +18,8 @@ local plugins = {
         "cpptools",
         "csharp-language-server",
         "csharpier",
+        "docker-compose-language-server",
+        "dockerfile-language-server",
       },
     },
   },
