@@ -45,9 +45,9 @@ null_ls.setup {
   debug = true,
   sources = {
     null_ls.builtins.formatting.gofumpt,
-    null_ls.builtins.formatting.goimports_reviser,
+    --null_ls.builtins.formatting.goimports_reviser,
     null_ls.builtins.formatting.golines.with {
-      args = { "-m", 80, "--base-formatter", "goimports-reviser" },
+      args = { "-m", 80, "--base-formatter", "goimports-reviser -output stdout -" },
     },
     null_ls.builtins.formatting.prettier.with {
       filetypes = {
